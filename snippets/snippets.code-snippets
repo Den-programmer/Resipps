@@ -1,0 +1,63 @@
+{
+    "React Functional Component": {
+        "prefix": "rfc",
+        "body": [
+            "import React from 'react'",
+            "import classes from '$3'",
+            "",
+            "const ${1:ComponentName} = (${2:props}) => {",
+            "  return (",
+            "    <div className={}>$4</div>",
+            "  )",
+            "}",
+            "",
+            "export default ${1:ComponentName} "
+        ],
+        "description": "React Functional Component"
+    },
+    "React Class Component": {
+        "prefix": "rcc",
+        "body": [
+            "import React, { Component } from 'react'",
+            "import classes from '$2'",
+            "",
+            "class ${1:ComponentName} extends Component {",
+            "  componentDidMount() {}",
+            "  componentDidUpdate() {}",
+            "",
+            "  render() {",
+            "    return (",
+            "      <div className={}>$3</div>",
+            "    )",
+            "  }",
+            "}",
+            "",
+            "export default ${1:ComponentName} "
+        ],
+        "description": "React Class Component"
+    },
+    "React Redux Container ": {
+        "prefix": "rrc",
+        "body": [
+            "import { connect } from 'react-redux'",
+            "",
+            "const mapStateToProps = (state) => ({",
+            "  $3",
+            "})",
+            "",
+            "const ${1:ComponentName} = connect(mapStateToProps, { })($2)",
+            "",
+            "export default ${1:ComponentName}"
+        ],
+        "description": "React Redux Container "
+    },
+    "Loop FOR": {
+        "prefix": "for",
+        "body": [
+            "for (let i = 0; i<${1:arr}.length; i++) {",
+            "  $2",
+            "}"
+        ],
+        "description": "Loop FOR"
+    }
+}
