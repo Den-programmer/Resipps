@@ -1,8 +1,13 @@
 {
   "name": "resipps",
   "displayName": "Resipps",
+  "publisher": "DenIsEnlightener2",
   "description": "This is the extension with which you can code javascript/react faster!",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Den-programmer/Resipps.git"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },

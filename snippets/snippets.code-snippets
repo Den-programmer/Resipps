@@ -1,4 +1,56 @@
 {
+    "React Functional Component Typed": {
+        "prefix": "rfct",
+        "body": [
+            "import React from 'react'",
+            "import classes from './$2'",
+            "",
+            "interface ${3:IProps} {",
+            "  ",
+            "}",
+            "",
+            "const ${1:ComponentName}: React.FC<${3:IProps}> = (${4:props}) => {",
+            "  return (",
+            "    <div className={classes.$5}>",
+            "        $6",
+            "    </div>",
+            "  )",
+            "}",
+            "",
+            "export default ${1:ComponentName}"
+        ],
+        "description": "React Functional Component Typed"
+    },
+    "React Class Component Typed": {
+        "prefix": "rcct",
+        "body": [
+            "import React from 'react'",
+            "import classes from './$2'",
+            "",
+            "interface ${3:IProps} {",
+            "  ",
+            "}",
+            "",
+            "class ${1:ComponentName} extends React.Component<${3:IProps}> {",
+            "  componentDidMount() {",
+            "    $5",
+            "  }",
+            "  componentDidUpdate() {",
+            "    $6",
+            "  }",
+            "  render() {",
+            "    return (",
+            "      <div className={classes.$4}>",
+            "          $7",
+            "      </div>",
+            "    )",
+            "  }",
+            "}",
+            "",
+            "export default ${1:ComponentName}"
+        ],
+        "description": "React Class Component Typed"
+    },
     "React Functional Component": {
         "prefix": "rfc",
         "body": [
@@ -51,6 +103,74 @@
         ],
         "description": "React Redux Container "
     },
+    "Reducer creator": {
+        "prefix": "reducer",
+        "body": [
+            "const ${2:initialState} = {",
+            "  $3",
+            "}",
+            "",
+            "const reducer$1 = (state = ${2:initialState}, action) => {",
+            "    switch(action.type) {",
+            "        default:",
+            "            return state",
+            "    }",
+            "}",
+            "",
+            "export default reducer$1"
+        ],
+        "description": "Reducer creator"
+    },
+    "Action creator": {
+        "prefix": "action",
+        "body": [
+            "export const $1 = ($3) => ({ type: $2, $4 })"
+        ],
+        "description": "Action creator"
+    },
+    "Thunk creator": {
+        "prefix": "thunk",
+        "body": [
+            "export const $1 = ($3) => async (dispatch) => {",
+            "  try {",
+            "      $2",
+            "  } catch(err) {",
+            "     alert(err)",
+            "  }",
+            "} "
+        ],
+        "description": "Thunk creator"
+    },
+    "UseTranslation Hook": {
+        "prefix": "uT",
+        "body": [
+            "const { t } = useTranslation()"
+        ],
+        "description": "UseTranslation Hook"
+    },
+    "UseState Hook": {
+        "prefix": "uS",
+        "body": [
+            "const [$2, $3] = useState($1)"
+        ],
+        "description": "UseState Hook"
+    },
+    "UseEffect Hook": {
+        "prefix": "uE",
+        "body": [
+            "useEffect(() => {",
+            "  $2",
+            "}, ${1:[]})"
+        ],
+        "description": "UseEffect Hook"
+    },
+    "React Create Ref": {
+        "prefix": "rr",
+        "body": [
+            "const $1 = React.createRef()"
+        ],
+        "description": "React Create Ref"
+    },
     "Loop FOR": {
         "prefix": "for",
         "body": [
@@ -59,5 +179,58 @@
             "}"
         ],
         "description": "Loop FOR"
+    },
+    "Map - method of an array": {
+        "prefix": "mapm",
+        "body": [
+            "const ${1:newArray} = ${2:arr}.map(item => {",
+            "  return <div key={}>",
+            "      $3",
+            "  </div>",
+            "})"
+        ],
+        "description": "Map - method of an array"
+    },
+    "Translation i18next config": {
+        "prefix": "i18config",
+        "body": [
+            "import i18n from 'i18next'",
+            "import { initReactI18next } from 'react-i18next'",
+            "import Backend from 'i18next-http-backend'",
+            "import LanguageDetector from 'i18next-browser-languagedetector'",
+            "import translationEN from '${1:./assets/locals/en/translation.json}'",
+            "",
+            "const fallbackLng = ['en']",
+            "const availableLanguages = ['en', $2]",
+            "",
+            "const resources = {",
+            "    en: {",
+            "        translation: translationEN",
+            "    },",
+            "    $3",
+            "}",
+            "",
+            "i18n",
+            "    .use(Backend)",
+            "    .use(LanguageDetector)",
+            "    .use(initReactI18next)",
+            "    .init({",
+            "        resources,",
+            "        fallbackLng,",
+            "",
+            "        detection: {",
+            "            checkWhitelist: true,",
+            "        },",
+            "",
+            "        debug: false,",
+            "",
+            "        whitelist: availableLanguages,",
+            "",
+            "        interpolation: {",
+            "            escapeValue: false,",
+            "        }",
+            "    })"
+        ],
+        "description": "Translation i18next config"
     }
 }
