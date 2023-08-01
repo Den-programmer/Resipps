@@ -6,7 +6,7 @@ All notable changes to the "resipps" extension will be documented in this file.
 
 - Initial release of resipps extensionv
 
-## [1.0.1]
+## [1.1.0]
 
 - Added snippets:
 
