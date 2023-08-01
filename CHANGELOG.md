@@ -31,3 +31,7 @@ i18config - Translation i18next config
 uT - UseTranslation Hook
 
 mapm - map method of an array that returns new array with JSX elements
+
+## [1.2.0]
+
+Fixed bug with languages
