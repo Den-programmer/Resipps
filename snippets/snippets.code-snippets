@@ -51,6 +51,17 @@
         ],
         "description": "React Class Component Typed"
     },
+    "Type hooks useDispatch and useSelector": {
+        "prefix": "tuse",
+        "body": [
+            "import { TypedUseSelectorHook, useDispatch, useSelector } from \"react-redux\"",
+            "import { AppDispatch, RootState } from \"../store\"",
+            "",
+            "export const useAppDispatch = () => useDispatch<AppDispatch>()",
+            "export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector"
+        ],
+        "description": "Type hooks useDispatch and useSelector"
+    },
     "React Functional Component": {
         "prefix": "rfc",
         "body": [
@@ -164,12 +175,128 @@
         ],
         "description": "UseEffect Hook"
     },
+    "Create react hook useDebounce": {
+        "prefix": "deb",
+        "body": [
+            "import { useEffect, useState } from \"react\"",
+            "",
+            "export function useDebounce(value, delay = 250) {",
+            "    const [debouncedValue, setDebouncedValue] = useState(value)",
+            "",
+            "    useEffect(() => {",
+            "      const handler = setTimeout(() => setDebouncedValue(value), delay)",
+            "        return () => clearTimeout(handler)",
+            "    }, [value, delay])",
+            "",
+            "    return debouncedValue",
+            "}"
+        ],
+        "description": "Create react hook useDebounce"
+    },
+    "Create react hook useInput": {
+        "prefix": "useInp",
+        "body": [
+            "import { useState } from 'react'",
+            "",
+            "export const useInput = (initialValue = '') => {",
+            "    const [value, setValue] = useState(initialValue)",
+            "",
+            "    const onChange = (event) => {",
+            "        setValue(event.currentTarget.value)",
+            "    }",
+            "",
+            "    return {",
+            "        value,",
+            "        onChange",
+            "    }",
+            "}"
+        ],
+        "description": "Create react hook useInput"
+    },
     "React Create Ref": {
         "prefix": "rr",
         "body": [
             "const $1 = React.createRef()"
         ],
         "description": "React Create Ref"
+    },
+    "Create store with redux-toolkit": {
+        "prefix": "configStore",
+        "body": [
+            "import { configureStore, combineReducers } from \"@reduxjs/toolkit\"",
+            "",
+            "const rootReducer = combineReducers({",
+            "    ",
+            "})",
+            "",
+            "export const setupStore = () => {",
+            "    return configureStore({",
+            "        reducer: rootReducer",
+            "    })",
+            "}"
+        ],
+        "description": "Create store with redux-toolkit"
+    },
+    "Create slice": {
+        "prefix": "slice",
+        "body": [
+            "import { createSlice } from \"@reduxjs/toolkit\"",
+            "",
+            "const initialState = {",
+            "    ",
+            "}",
+            "",
+            "export const $1 = createSlice({",
+            "    name: '$2',",
+            "    initialState,",
+            "    reducers: {",
+            "   ",
+            "    }",
+            "})",
+            "",
+            "export default $1.reducer"
+        ],
+        "description": "Create slice"
+    },
+    "Create service with rtk query": {
+        "prefix": "service",
+        "body": [
+            "import { createApi, fetchBaseQuery } from \"@reduxjs/toolkit/dist/query/react\"",
+            "",
+            "export const $1API = createApi({",
+            "    reducerPath: '$1API',",
+            "    baseQuery: fetchBaseQuery({ baseUrl: '$2' }),",
+            "    tagTypes: [$3],",
+            "    endpoints: (build) => ({",
+            "       $4",
+            "    })",
+            "})"
+        ],
+        "description": "Create service with rtk query"
+    },
+    "Make random value (string or number)": {
+        "prefix": "mrf",
+        "body": [
+            "export function makeRandomValue(lengthOrDigits, isString) {",
+            "    let result = '';",
+            "    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';",
+            "",
+            "    if (isString) {",
+            "        const charactersLength = characters.length;",
+            "        let counter = 0;",
+            "        while (counter < lengthOrDigits) {",
+            "            result += characters.charAt(Math.floor(Math.random() * charactersLength));",
+            "            counter += 1;",
+            "        }",
+            "    } else {",
+            "        const maxNumber = Math.pow(10, lengthOrDigits) - 1;",
+            "        result = Math.floor(Math.random() * maxNumber);",
+            "    }",
+            "",
+            "    return result;",
+            "}"
+        ],
+        "description": "Make random value (string or number)"
     },
     "Loop FOR": {
         "prefix": "for",
